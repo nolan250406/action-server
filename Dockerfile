@@ -1,14 +1,11 @@
 FROM rasa/rasa-sdk:3.1.2
 
+USER root
 WORKDIR /app
 
-COPY . /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Fix pip permission + speed up build
-ENV PIP_NO_CACHE_DIR=yes
-ENV PIP_ROOT_USER_ACTION=ignore
-ENV PATH="${PATH}:/root/.local/bin"
+COPY actions /app/actions
 
-RUN pip install -r requirements.txt
-
-CMD ["rasa", "run", "actions"]
+CMD ["start", "--actions", "actions", "--debug"]
