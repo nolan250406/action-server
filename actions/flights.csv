@@ -1,0 +1,4 @@
+flight_code,airline,departure_time,arrival_time,status
+VN123,Vietnam Airlines,10:30,12:45,Đang đúng giờ
+VJ456,Vietjet Air,13:00,15:20,Trễ 15 phút
+QH789,Bamboo Airways,16:00,18:00,Đã hạ cánh
